@@ -21,3 +21,19 @@ ibmcloud cf login
 ibmcloud cf create-app-manifest <app-name>
 ibmcloud cf push <app-name> -c "catwalk_relayer -upstream example.com:80 -ws true"
 ```
+
+# Deploy To Heroku
+
+HomePage: https://dashboard.heroku.com/
+
+Getting Start: https://devcenter.heroku.com/articles/getting-started-with-go
+
+Deploy:
+```bash
+heroku login
+
+heroku git:remote -a <appName>
+heroku config:set UPSTREAM=youserver.com:1234 WS=true WS_PATH=/chat -a <appName>
+
+git push heroku master
+```
